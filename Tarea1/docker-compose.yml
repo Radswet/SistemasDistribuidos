@@ -12,7 +12,6 @@ services:
   
   cache:
 
-
   server:
     build: ./<ruta al servidor>
     depends_on:
