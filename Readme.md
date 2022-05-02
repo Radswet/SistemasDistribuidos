@@ -1,2 +1,2 @@
-#Sistemas Distribuidos CIT2011_CA01
+# Sistemas Distribuidos CIT2011_CA01
 Fernando Vergara 
