@@ -1,4 +1,3 @@
-
 const express = require('express');
 const session = require('express-session');
 const redis = require('redis');
@@ -46,7 +45,7 @@ app.get("/", (req, res) => {
             res.end('<a href=' + '/logout' + '>Click here to log out</a >')
         }
     } else {
-        res.sendFile(__dirname + "/login.html")
+        res.sendFile(__dirname + "/search.html")
     }
 });
 

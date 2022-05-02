@@ -3,24 +3,31 @@ version: '3.7'
 services:
 
   client:
-    build: ./<ruta al cliente>
+    build: ./grpc/grpc_client/
     depends_on:
       - postgres
       - server
+      - cache
     ports:
       - "80:3000"
   
   cache:
+    image: bitnami/redis:6.0.16
+    restart: always
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - "6379:6379"
 
   server:
-    build: ./<ruta al servidor>
+    build: ./grpc/grpc_server/
     depends_on:
       - postgres
   
   postgres:
     image: docker.io/bitnami/postgresql:11
     volumes:
-      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
     environment:
       - POSTGRESQL_USERNAME=postgres
       - POSTGRESQL_DATABASE=test
