@@ -7,19 +7,19 @@ services:
     depends_on:
       - postgres
       - server
-      - cache
+      # - cache
     volumes:
       - ./grpc/example.proto:/example.proto  
     ports:
       - "80:3000"
   
-  cache:
-    image: bitnami/redis:6.0.16
-    restart: always
-    environment:
-      - ALLOW_EMPTY_PASSWORD=yes
-    volumes:
-      - ./cache/api/redis:/bitnami/redis/data
+  # cache:
+  #   image: bitnami/redis:6.0.16
+  #   restart: always
+  #   environment:
+  #     - ALLOW_EMPTY_PASSWORD=yes
+  #   volumes:
+  #     - ./cache/api/redis:/bitnami/redis/data
     # ports:
     #   - "6379:6379"
 
