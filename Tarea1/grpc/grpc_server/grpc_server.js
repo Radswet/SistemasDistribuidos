@@ -5,14 +5,21 @@ const protoLoader = require("@grpc/proto-loader");
 const pool = new Pool({
   user: 'postgres',
   host: 'postgres',
-  database: 'Items',
-  password: '1234'
-  //port: 3211,
+  database: 'test',
+  password: '1234',
+  port: 3211
 })
-  
+
 const PROTO_PATH = "./example.proto";
 const items = require("./data.json");
 
+pool.query('SELECT * FROM Items', (err,res)=> {
+  if(err){
+    console.log(err)
+  }else {
+    console.log(res)
+  }
+})
 
 const options = {
   keepCase: true,
