@@ -1,11 +1,17 @@
-const pg = require("pg");
+const { Pool, Client } = require('pg');
 const grpc = require("@grpc/grpc-js");
 const protoLoader = require("@grpc/proto-loader");
 
-
+const pool = new Pool({
+  user: 'postgres',
+  host: 'postgres',
+  database: 'Items',
+  password: '1234'
+  //port: 3211,
+})
+  
 const PROTO_PATH = "./example.proto";
-const items = require("../data.json");
-
+const items = require("./data.json");
 
 
 const options = {
