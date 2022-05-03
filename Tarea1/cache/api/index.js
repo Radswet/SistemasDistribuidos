@@ -3,7 +3,9 @@ const session = require('express-session');
 const redis = require('redis');
 const connectRedis = require('connect-redis');
 const cors = require('cors');
+import { createClient } from "redis";
 var bodyParser = require('body-parser');
+
 
 const app = express();
 

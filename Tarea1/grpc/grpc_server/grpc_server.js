@@ -1,8 +1,9 @@
 const grpc = require("@grpc/grpc-js");
 const protoLoader = require("@grpc/proto-loader");
+const sql = require("sql")
 
-const PROTO_PATH = "./example.proto";
-const items = require("./data.json");
+const PROTO_PATH = "../example.proto";
+const items = require("../data.json");
 
 const options = {
   keepCase: true,
