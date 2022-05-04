@@ -2,6 +2,12 @@ const { Pool, Client } = require('pg');
 const grpc = require("@grpc/grpc-js");
 const protoLoader = require("@grpc/proto-loader");
 
+const PROTO_PATH = "../example.proto";
+// const items = require("./data.json");
+const packageDefinition = protoLoader.loadSync(PROTO_PATH, options);
+const itemProto = grpc.loadPackageDefinition(packageDefinition);
+
+
 const pool = new Pool({
   user: 'postgres',
   host: 'postgres',
@@ -10,17 +16,6 @@ const pool = new Pool({
   //port: 3211
 })
 
-const PROTO_PATH = "../example.proto";
-const items = require("./data.json");
-
-pool.query('SELECT * FROM Items', (err,res)=> {
-  if(err){
-    console.log(err)
-  }else {
-    console.log(res)
-  }
-})
-// const textquery = 'SELECT * FROM Items'
 
 const options = {
   keepCase: true,
@@ -30,16 +25,19 @@ const options = {
   oneofs: true,
 };
 
-const packageDefinition = protoLoader.loadSync(PROTO_PATH, options);
-const itemProto = grpc.loadPackageDefinition(packageDefinition);
 
 const server = () => {
   const server = new grpc.Server();
   server.addService(itemProto.ItemService.service, {
-    getItem: (_, callback) => {
+    getItem: async (_, callback) => {
       const itemName = _.request.name;
-      const item = items.item_list.filter((obj) => obj.name.includes(itemName));
-      callback(null, { items: item});
+      let item
+      if(itemName){
+        item = await pool.query(`SELECT * FROM Items WHERE Name ILIKE '%${itemName}%'`)
+      } else{
+        item = await pool.query('SELECT * FROM Items') 
+      }
+      callback(null, { items: item.rows})
     }
   });
   server.bindAsync("0.0.0.0:50051", grpc.ServerCredentials.createInsecure(), (err, port) => {

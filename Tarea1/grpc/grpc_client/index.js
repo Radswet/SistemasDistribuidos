@@ -4,7 +4,8 @@ const client= require("./grpc_client")
 
 const app= express()
 
-app.get('/', (req, res)=>{
-    client.getItem({name:''}, (_,data)=>{res.json(data)})
+app.get('/:name?', (req, res)=>{
+    client.getItem({name:req.params.name}, (_,data)=>{res.json(data)})
+    
 })
 app.listen(3000)
