@@ -4,9 +4,6 @@ const protoLoader = require("@grpc/proto-loader");
 
 const PROTO_PATH = "../example.proto";
 // const items = require("./data.json");
-const packageDefinition = protoLoader.loadSync(PROTO_PATH, options);
-const itemProto = grpc.loadPackageDefinition(packageDefinition);
-
 
 const pool = new Pool({
   user: 'postgres',
@@ -16,7 +13,6 @@ const pool = new Pool({
   //port: 3211
 })
 
-
 const options = {
   keepCase: true,
   longs: String,
@@ -25,6 +21,8 @@ const options = {
   oneofs: true,
 };
 
+const packageDefinition = protoLoader.loadSync(PROTO_PATH, options);
+const itemProto = grpc.loadPackageDefinition(packageDefinition);
 
 const server = () => {
   const server = new grpc.Server();

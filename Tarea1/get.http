@@ -4,3 +4,5 @@ GET http://localhost/
 GET http://localhost/Mens
 ###
 GET http://localhost/SSD
+###
+GET http://localhost/Cotton

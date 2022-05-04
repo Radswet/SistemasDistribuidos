@@ -1,73 +1,52 @@
 const express = require('express');
-const session = require('express-session');
 const redis = require('redis');
 const connectRedis = require('connect-redis');
 const cors = require('cors');
-import { createClient } from "redis";
+var grpcClient= require("../../grpc/grpc_client/grpc_client");
+// const { createClient } = require('redis');
 var bodyParser = require('body-parser');
-
 
 const app = express();
 
-app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-const RedisStore = connectRedis(session);
+// app.use(cors());
+// app.use(bodyParser.sql());
+// app.use(bodyParser.urlencoded({ extended: true }));
 
 const redisClient = redis.createClient({
     host: process.env.REDIS_HOST,   
-    port: 6379
+    // port: 6379
 });
 
 redisClient.on("error", function(error) {
     console.error(error);
 });
   
-
-app.use(session({
-    store: new RedisStore({ client: redisClient }),
-    secret: 'mysecret',
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-        maxAge: 1000
-    }
-}));
-
-app.get("/", (req, res) => {
-    const sess = req.session;
-    console.log(sess);
-    if (sess.username && sess.password) {
-        if (sess.username) {
-            res.write(`<h1>Welcome ${sess.username} </h1><br>`)
-            res.write(
-                `<h3>This is the Home page</h3>`
-            );
-            res.end('<a href=' + '/logout' + '>Click here to log out</a >')
-        }
+const client = createClient({
+    socket: { host: process.env.REDIS_HOST, port: 6379 },
+  });
+  console.log({ host: process.env.REDIS_HOST, port: 6379 });
+  client.on("error", (err) => console.error("Redis Client Error", err));
+  await client.connect();
+  
+  app.get("/inventory/search", async (req, res) => {
+    const { query } = req;
+    const q = query.q;
+  
+    const redisRes = await client.get(q);
+    console.log(redisRes);
+    if (redisRes) {
+      res.status(200).json(JSON.parse(redisRes));
     } else {
-        res.sendFile(__dirname + "/search.html")
-    }
-});
-
-app.post("/login", (req, res) => {
-    const sess = req.session;
-    console.log(req.session);
-    const { username, password } = req.body
-    sess.username = username
-    sess.password = password
-    res.end("success")
-});
-
-app.get("/logout", (req, res) => {
-    req.session.destroy(err => {
+      grpcClient.GetItem({ name: q }, async (err, data) => {
         if (err) {
-            return console.log(err);
+          res.status(500).json({ err });
+        } else {
+          await client.set(q, JSON.stringify(data));
+          res.status(200).json({ data });
         }
-        res.redirect("/")
-    });
-});
+      });
+    }
+  });
 
 app.listen(3000, () => {
     console.log("Server started at port 3000");
