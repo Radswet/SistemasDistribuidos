@@ -11,6 +11,7 @@ Para ejecutar este proyecto
 Se debe ejecutar:
 
 ```sh
+cd Tarea1
 docker-compose build
 docker-compose up
 ```
@@ -44,3 +45,15 @@ Se ha configurado redis con una politica de remoción de `LRU` y un cache de 1mb
 ```
 command: /opt/bitnami/script/redis/run.h --maxmemory 1mb --maxmemory-policy volatile-lru
 ```
+Luego se utilizo la politica de remoción `LFU`
+```
+command: /opt/bitnami/script/redis/run.h --maxmemory 1mb --maxmemory-policy valitile-lru
+```
+
+### Comparación LRU LFU
+
+| LRU | LFU |
+| ------------- | ------------- |
+| Cuando se consulta por una gran variedad de productos y el almacenamiento del cache llega a su limite, se remueve el producto con mas antiguedad en el cache. | Cuando un producto no es consultado en un periodo prolongado de tiempo. Este producto es removido del cache.   |
+
+Por lo tanto en este ejercicio con una cantidad acotada de productos no se aprecian mayores diferencias 
