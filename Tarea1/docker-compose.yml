@@ -29,6 +29,8 @@ services:
       - postgres
     volumes:
       - ./grpc/example.proto:/example.proto
+    # ports:
+    #   - "50051:50051"
 
   postgres:
     image: docker.io/bitnami/postgresql:11

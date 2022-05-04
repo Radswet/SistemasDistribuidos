@@ -7,10 +7,10 @@ const pool = new Pool({
   host: 'postgres',
   database: 'test',
   password: '1234',
-  port: 3211
+  //port: 3211
 })
 
-const PROTO_PATH = "./example.proto";
+const PROTO_PATH = "../example.proto";
 const items = require("./data.json");
 
 pool.query('SELECT * FROM Items', (err,res)=> {
@@ -20,6 +20,7 @@ pool.query('SELECT * FROM Items', (err,res)=> {
     console.log(res)
   }
 })
+// const textquery = 'SELECT * FROM Items'
 
 const options = {
   keepCase: true,
