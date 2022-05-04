@@ -42,5 +42,5 @@ Además de esto se usó en get.http los GET, en donde fueron consultadas con la 
 Se ha configurado redis con una politica de remoción de `LRU` y un cache de 1mb, esto se configuro a través de docker-compose 
 
 ```
-command: /opt/bitnami/script/redis/run.h --maxmemory 1mb --maxmemory-policy allkeys-lru
+command: /opt/bitnami/script/redis/run.h --maxmemory 1mb --maxmemory-policy volatile-lru
 ```
