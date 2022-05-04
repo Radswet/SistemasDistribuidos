@@ -35,7 +35,7 @@ http://localhost/SSD
 Esta consulta entrega los productos que contegan la palabra SSD
 
 \
-Estos ademas se encuentra en get.http donde fueron consultadas con la extensión [REST client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) de visual studio code. Esto no es necesario solo fue utilizado para simplificar la ejecución de las consultas
+Además de esto se usó en get.http los GET, en donde fueron consultadas con la extensión [REST client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) de visual studio code. Esto no es necesario solo fue utilizado para simplificar la ejecución de las consultas
 
 ### Configuración redis
 
