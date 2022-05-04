@@ -17,7 +17,7 @@ docker-compose up
 
 ### Metodos GET
 
-Los metodos GET utilizados son los siguientes:
+Los metodos GET utilzados para testear fueron son los siguientes:
 
 ```
 http://localhost/
