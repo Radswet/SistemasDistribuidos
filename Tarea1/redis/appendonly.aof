@@ -1,0 +1,61 @@
+*2
+$6
+SELECT
+$1
+0
+*3
+$3
+set
+$4
+Mens
+$1155
+{"items":[{"id":2,"name":"Mens Casual Premium Slim Fit T-Shirts ","price":22.299999237060547,"category":"mens clothing","count":259},{"id":3,"name":"Mens Cotton Jacket","price":55.9900016784668,"category":"mens clothing","count":500},{"id":4,"name":"Mens Casual Slim Fit","price":15.989999771118164,"category":"mens clothing","count":430},{"id":5,"name":"John Hardy Womens Legends Naga Gold & Silver Dragon Station Chain Bracelet","price":695,"category":"jewelery","count":400},{"id":15,"name":"BIYLACLESEN Womens 3-in-1 Snowboard Jacket Winter Coats","price":56.9900016784668,"category":"womens clothing","count":235},{"id":16,"name":"Lock and Love Womens Removable Hooded Faux Leather Moto Biker Jacket","price":29.950000762939453,"category":"womens clothing","count":340},{"id":18,"name":"MBJ Womens Solid Short Sleeve Boat Neck V ","price":9.850000381469727,"category":"womens clothing","count":130},{"id":19,"name":"Opna Womens Short Sleeve Moisture","price":7.949999809265137,"category":"womens clothing","count":146},{"id":20,"name":"DANVOUY Womens T Shirt Casual Cotton Short","price":12.989999771118164,"category":"womens clothing","count":145}]}
+*3
+$3
+set
+$3
+SSD
+$276
+{"items":[{"id":10,"name":"SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s","price":109,"category":"electronics","count":470},{"id":11,"name":"Silicon Power 256GB SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2.5","price":109,"category":"electronics","count":319}]}
+*3
+$3
+set
+$6
+Cotton
+$242
+{"items":[{"id":3,"name":"Mens Cotton Jacket","price":55.9900016784668,"category":"mens clothing","count":500},{"id":20,"name":"DANVOUY Womens T Shirt Casual Cotton Short","price":12.989999771118164,"category":"womens clothing","count":145}]}
+*3
+$3
+set
+$0
+
+$2605
+{"items":[{"id":1,"name":"Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops","price":109.94999694824219,"category":"mens clothing","count":120},{"id":2,"name":"Mens Casual Premium Slim Fit T-Shirts ","price":22.299999237060547,"category":"mens clothing","count":259},{"id":3,"name":"Mens Cotton Jacket","price":55.9900016784668,"category":"mens clothing","count":500},{"id":4,"name":"Mens Casual Slim Fit","price":15.989999771118164,"category":"mens clothing","count":430},{"id":5,"name":"John Hardy Womens Legends Naga Gold & Silver Dragon Station Chain Bracelet","price":695,"category":"jewelery","count":400},{"id":6,"name":"Solid Gold Petite Micropave ","price":168,"category":"jewelery","count":70},{"id":7,"name":"White Gold Plated Princess","price":9.989999771118164,"category":"jewelery","count":400},{"id":8,"name":"Pierced Owl Rose Gold Plated Stainless Steel Double","price":10.989999771118164,"category":"jewelery","count":100},{"id":9,"name":"WD 2TB Elements Portable External Hard Drive - USB 3.0 ","price":64,"category":"electronics","count":203},{"id":10,"name":"SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s","price":109,"category":"electronics","count":470},{"id":11,"name":"Silicon Power 256GB SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2.5","price":109,"category":"electronics","count":319},{"id":12,"name":"WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive","price":114,"category":"electronics","count":400},{"id":13,"name":"Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin","price":599,"category":"electronics","count":250},{"id":14,"name":"Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED ","price":999.989990234375,"category":"electronics","count":140},{"id":15,"name":"BIYLACLESEN Womens 3-in-1 Snowboard Jacket Winter Coats","price":56.9900016784668,"category":"womens clothing","count":235},{"id":16,"name":"Lock and Love Womens Removable Hooded Faux Leather Moto Biker Jacket","price":29.950000762939453,"category":"womens clothing","count":340},{"id":17,"name":"Rain Jacket Women Windbreaker Striped Climbing Raincoats","price":39.9900016784668,"category":"womens clothing","count":679},{"id":18,"name":"MBJ Womens Solid Short Sleeve Boat Neck V ","price":9.850000381469727,"category":"womens clothing","count":130},{"id":19,"name":"Opna Womens Short Sleeve Moisture","price":7.949999809265137,"category":"womens clothing","count":146},{"id":20,"name":"DANVOUY Womens T Shirt Casual Cotton Short","price":12.989999771118164,"category":"womens clothing","count":145}]}
+*3
+$3
+set
+$5
+women
+$968
+{"items":[{"id":5,"name":"John Hardy Womens Legends Naga Gold & Silver Dragon Station Chain Bracelet","price":695,"category":"jewelery","count":400},{"id":15,"name":"BIYLACLESEN Womens 3-in-1 Snowboard Jacket Winter Coats","price":56.9900016784668,"category":"womens clothing","count":235},{"id":16,"name":"Lock and Love Womens Removable Hooded Faux Leather Moto Biker Jacket","price":29.950000762939453,"category":"womens clothing","count":340},{"id":17,"name":"Rain Jacket Women Windbreaker Striped Climbing Raincoats","price":39.9900016784668,"category":"womens clothing","count":679},{"id":18,"name":"MBJ Womens Solid Short Sleeve Boat Neck V ","price":9.850000381469727,"category":"womens clothing","count":130},{"id":19,"name":"Opna Womens Short Sleeve Moisture","price":7.949999809265137,"category":"womens clothing","count":146},{"id":20,"name":"DANVOUY Womens T Shirt Casual Cotton Short","price":12.989999771118164,"category":"womens clothing","count":145}]}
+*3
+$3
+set
+$4
+mens
+$1155
+{"items":[{"id":2,"name":"Mens Casual Premium Slim Fit T-Shirts ","price":22.299999237060547,"category":"mens clothing","count":259},{"id":3,"name":"Mens Cotton Jacket","price":55.9900016784668,"category":"mens clothing","count":500},{"id":4,"name":"Mens Casual Slim Fit","price":15.989999771118164,"category":"mens clothing","count":430},{"id":5,"name":"John Hardy Womens Legends Naga Gold & Silver Dragon Station Chain Bracelet","price":695,"category":"jewelery","count":400},{"id":15,"name":"BIYLACLESEN Womens 3-in-1 Snowboard Jacket Winter Coats","price":56.9900016784668,"category":"womens clothing","count":235},{"id":16,"name":"Lock and Love Womens Removable Hooded Faux Leather Moto Biker Jacket","price":29.950000762939453,"category":"womens clothing","count":340},{"id":18,"name":"MBJ Womens Solid Short Sleeve Boat Neck V ","price":9.850000381469727,"category":"womens clothing","count":130},{"id":19,"name":"Opna Womens Short Sleeve Moisture","price":7.949999809265137,"category":"womens clothing","count":146},{"id":20,"name":"DANVOUY Womens T Shirt Casual Cotton Short","price":12.989999771118164,"category":"womens clothing","count":145}]}
+*3
+$3
+set
+$11
+performance
+$156
+{"items":[{"id":11,"name":"Silicon Power 256GB SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2.5","price":109,"category":"electronics","count":319}]}
+*3
+$3
+set
+$11
+electronics
+$12
+{"items":[]}

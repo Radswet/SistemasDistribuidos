@@ -2,6 +2,16 @@ version: '3.7'
 
 services:
 
+  postgres:
+    image: docker.io/bitnami/postgresql:11
+    volumes:
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      - POSTGRESQL_USERNAME=postgres
+      - POSTGRESQL_DATABASE=test
+      - ALLOW_EMPTY_PASSWORD=yes
+      - POSTGRESQL_PASSWORD=1234
+
   client:
     build: ./grpc/grpc_client/
     depends_on:
@@ -20,8 +30,9 @@ services:
     # restart: always
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
+    command: /opt/bitnami/scripts/redis/run.sh --maxmemory 1mb --maxmemory-policy volatile-lru
     volumes:
-      - ./cache/api/redis:/bitnami/redis/data
+      - ./redis:/bitnami/redis/data
     # ports:
     #   - "6379:6379"
 
@@ -33,15 +44,5 @@ services:
       - ./grpc/example.proto:/example.proto
     # ports:
     #    - "50051:50051"
-
-  postgres:
-    image: docker.io/bitnami/postgresql:11
-    volumes:
-      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
-    environment:
-      - POSTGRESQL_USERNAME=postgres
-      - POSTGRESQL_DATABASE=test
-      - ALLOW_EMPTY_PASSWORD=yes
-      - POSTGRESQL_PASSWORD=1234
 
 #docker-compose up -d
