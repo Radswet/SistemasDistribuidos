@@ -1,8 +1,11 @@
 const express = require("express");
 const fs = require("fs/promises");
-const consumer = require("./kafkasecurity");
+const kafka = require("./kafkasecurity");
 const app = express();
 app.use(express.json());
+
+const consumer = kafka.consumer({ groupId: "security-group" });
+
 
 app.get("/blocked", async function (req, res) {
     const bloqFile = await fs.readFile("/bloqUsers.json", "utf-8");
