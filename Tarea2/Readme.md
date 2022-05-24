@@ -57,6 +57,6 @@ De manera que en este escenario es idoneo para la comunicacion entre servicios, 
 
 En kafka existen los llamados "Brokers" que son instancias de kafka y ademas existen los "Topic" que son colecciones de mensajes de un criterio derminado y a su vez existen las "particiones" que son secuencias de mensajes.
 
-Se pueden crear varios Brokers de manera que se tengan varias instancias y sea zookeeper quien se encargue de administrar estas añadiendo determinados topics
+Se pueden crear varios Brokers de manera que se tengan varias instancias y sea zookeeper quien se encargue de administrarlas.
 
-Los topis son distribuidos en pariticiones, y estos permiten que los topics quepan en varios nodos y en paralelo permiten que un grupo de clientes pueda recibir mensajes, ademas es posible replicar las particiones para obtener un alta disponibilidad.
+Los topis son distribuidos en pariticiones, y estos permiten que los topics quepan en varios nodos y en paralelo permiten que un grupo de clientes pueda recibir mensajes, ademas es posible replicar las particiones para obtener una alta disponibilidad.
