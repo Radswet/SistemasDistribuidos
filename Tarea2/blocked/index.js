@@ -21,8 +21,8 @@ app.listen(5000, async function() {
 
     await consumer.run({
         eachMessage: async ({ topic, partition, message }) => {
-          console.log("hola")
-          console.log(incorrectLogins)
+          //console.log("hola")
+          //console.log(incorrectLogins)
           const value = JSON.parse(message.value.toString());
           const { user, validation } = value;
           const bloqUsersFile = await fs.readFile("/bloqUsers.json", "utf-8");
