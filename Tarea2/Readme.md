@@ -32,8 +32,7 @@ y se envia un usuario en formato jsdon a través del body de la siguiente forma:
     pass: "123",
 }
 ```
-
-
+con una respuesta de login true, en caso contrario de enviar una pass incorrecta enviara un login false. Luego de 5 login con respuesta false el usuario sera bloqueado.
 
 ### Metodo GET
 
