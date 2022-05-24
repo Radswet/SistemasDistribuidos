@@ -54,3 +54,9 @@ Kafka es un sistema de intermediación de mebsajes y esta diseñado para reaccio
 De manera que en este escenario es idoneo para la comunicacion entre servicios, por el hecho de que se necesita un registro de los usuarios que han sido bloqueados y kafka comunica login-blocked para la ralización de esta tarea.
 
 2. Basado en las tecnologías que usted tiene a su disposición (Kafka, backend) ¿Qué haría usted para manejar una gran cantidad de usuarios al mismo tiempo? 
+
+En kafka existen los llamados "Brokers" que son instancias de kafka y ademas existen los "Topic" que son colecciones de mensajes de un criterio derminado y a su vez existen las "particiones" que son secuencias de mensajes.
+
+Se pueden crear varios Brokers de manera que se tengan varias instancias y sea zookeeper quien se encargue de administrar estas añadiendo determinados topics
+
+Los topis son distribuidos en pariticiones, y estos permiten que los topics quepan en varios nodos y en paralelo permiten que un grupo de clientes pueda recibir mensajes, ademas es posible replicar las particiones para obtener un alta disponibilidad.
