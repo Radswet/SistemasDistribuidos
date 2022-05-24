@@ -1,5 +1,5 @@
 const express = require("express");
-const kafka = require("./client");
+const producer = require("./client");
 const fs = require("fs/promises");
 const app = express();
 app.use(express.json());
@@ -11,11 +11,9 @@ app.post("/login", async function (req, res) {
     const bloqFile = await fs.readFile("/bloqUsers.json", "utf-8");
     const bloqUsers = JSON.parse(bloqFile);
     
-    const producer = kafka.producer({
-        createPartitioner: Partitioners.LegacyPartitioner,
-      });
+    
 
-    if (bloqUsers.find((blockedUser) => blockedUser == user)) {
+    if (bloqUsers.find((bloqUsers) => bloqUsers == user)) {
       return res.status(401).json({ login: false, error: "user blocked" });
     }
 
@@ -29,7 +27,7 @@ app.post("/login", async function (req, res) {
         }
       }
   
-    const validar = validacion(user, pass);
+    const validate = validacion(user, pass);
   
     await producer.connect();
     await producer.send({
@@ -38,13 +36,13 @@ app.post("/login", async function (req, res) {
         {
           value: JSON.stringify({
             user,
-            validation: validar,
+            validation: validate,
           }),
         },
       ],
     });
   
-    if (validar) {
+    if (validate) {
       res.json({ login: true });
     } else {
       res.status(401).json({ login: false, error: "incorrect credentials" });

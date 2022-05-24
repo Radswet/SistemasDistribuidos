@@ -5,6 +5,8 @@ const kafka = new Kafka({
   clientId: "login",
   brokers: [`${process.env.KAFKA_HOST}:9092`],
 });
+const producer = kafka.producer({
+  createPartitioner: Partitioners.LegacyPartitioner,
+});
 
-
-module.exports = kafka;
+module.exports = producer;
