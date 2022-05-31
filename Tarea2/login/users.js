@@ -1,12 +1,16 @@
 const check = [
     {
-      user: "test@gmail.com",
-      pass: "test",
+      user: "feña@mail.udp.cl",
+      pass: "123",
     },
     {
-      user: "example@gmail.com",
+      user: "edu@gmail.com",
       pass: "example",
     },
+    {
+      user: "fofi@mail.udp.cl",
+      pass: "flopi",
+    }
   ];
   
   module.exports = check;
