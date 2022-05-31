@@ -1,9 +1,11 @@
 const cassandra = require('cassandra-driver');
 
 const client = new cassandra.Client({
-  contactPoints: ['h1', 'h2'],
-  localDataCenter: 'datacenter1',
-  keyspace: 'ks1'
+  contactPoints: ['cassandra1', 'cassandra2', 'cassandra3'],
+  localDataCenter: 'cassandra-cluster'
 });
 
+client.connect(function (err) {
+  assert.ifError(err);
+});
 module.exports= client;
