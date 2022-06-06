@@ -1,7 +1,17 @@
-CREATE KEYSPACE tarea WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : '1' };
 
-CREATE TABLE IF NOT EXISTS tarea3 (
-userid text PRIMARY KEY,
-item_count int,
-last_update_timestamp timestamp
+CREATE TABLE IF NOT EXISTS paciente (
+id int PRIMARY KEY,
+nombre text,
+apellido text,
+rut text,
+email text,
+fecha_nacimiento text
+);
+
+CREATE TABLE IF NOT EXISTS receta(
+id int PRIMARY KEY,
+id_paciente int,
+comentario text,
+farmacos text,
+doctor text
 );
