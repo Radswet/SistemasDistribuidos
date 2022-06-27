@@ -23,13 +23,6 @@ async function insertPaciente(nombre, apellido, rut, email, fecha_nacimiento) {
   return newP_id;
 }
 
-//   app.get("/", async (req, res) => {
-//     res.type("application/json").code(200);
-//     const query = "SELECT * FROM ks2.receta;";
-//     const data = await client.execute(query);
-//     return {  data: data.rows };
-//   });
-
 app.post("/create", async (req, res) => {
   const {
     nombre,
