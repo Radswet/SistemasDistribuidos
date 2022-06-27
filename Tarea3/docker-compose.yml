@@ -6,7 +6,8 @@ services:
       - 7000:7000
       - 9042:9042
     volumes:
-    - /path/to/cassandra-persistence:/bitnami
+      - /cassandra/init_cql:/docker-entrypoint-initdb.d
+      - /path/to/cassandra-persistence:/bitnami
     environment:
       - CASSANDRA_SEEDS=cassandra,cassandra2,cassandra3
       - CASSANDRA_CLUSTER_NAME=cassandra-cluster
@@ -25,7 +26,7 @@ services:
     volumes:
     - /path/to/cassandra-persistence:/bitnami
     environment:
-      - CASSANDRA_SEEDS=cassandra,cassandra2
+      - CASSANDRA_SEEDS=cassandra,cassandra2,cassandra3
       - CASSANDRA_CLUSTER_NAME=cassandra-cluster
       - CASSANDRA_PASSWORD=cassandra
       # By default, Cassandra autodetects the available host memory and takes as much as it can.
@@ -48,3 +49,10 @@ services:
       # Therefore, memory options are mandatory if multiple Cassandras are launched in the same node.
       - MAX_HEAP_SIZE=2G
       - HEAP_NEWSIZE=200M
+  api:
+    build: ./cassandra/
+    env_file: .env
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./cassandra/:app/src
