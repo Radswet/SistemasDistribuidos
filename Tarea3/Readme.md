@@ -7,9 +7,13 @@
 
 ## Ejecutar
 
+Para ejecutar este proyecto
+Se debe ejecutar:
 
-
-
+```sh
+cd Tarea3
+docker-compose up
+```
 ## Preguntas
 
 ### Pregunta 1 
