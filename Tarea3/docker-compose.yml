@@ -2,51 +2,31 @@ version: '2'
 services:
   cassandra:
     image: docker.io/bitnami/cassandra:4.0
-    ports:
-      - 7000:7000
-      - 9042:9042
     volumes:
       - /cassandra/init_cql:/docker-entrypoint-initdb.d
-      - /path/to/cassandra-persistence:/bitnami
     environment:
-      - CASSANDRA_SEEDS=cassandra,cassandra2,cassandra3
       - CASSANDRA_CLUSTER_NAME=cassandra-cluster
+      - CASSANDRA_SEEDS=cassandra,cassandra2,cassandra3
       - CASSANDRA_PASSWORD_SEEDER=yes
       - CASSANDRA_PASSWORD=cassandra
-      # By default, Cassandra autodetects the available host memory and takes as much as it can.
-      # Therefore, memory options are mandatory if multiple Cassandras are launched in the same node.
       - MAX_HEAP_SIZE=2G
       - HEAP_NEWSIZE=200M
       
   cassandra2:
     image: docker.io/bitnami/cassandra:4.0
-    ports:
-      - 7001:7000
-      - 9043:9042
-    volumes:
-    - /path/to/cassandra-persistence:/bitnami
     environment:
-      - CASSANDRA_SEEDS=cassandra,cassandra2,cassandra3
       - CASSANDRA_CLUSTER_NAME=cassandra-cluster
+      - CASSANDRA_SEEDS=cassandra,cassandra2,cassandra3
       - CASSANDRA_PASSWORD=cassandra
-      # By default, Cassandra autodetects the available host memory and takes as much as it can.
-      # Therefore, memory options are mandatory if multiple Cassandras are launched in the same node.
       - MAX_HEAP_SIZE=2G
       - HEAP_NEWSIZE=200M
 
   cassandra3:
     image: docker.io/bitnami/cassandra:4.0
-    ports:
-      - 7001:7000
-      - 9043:9042
-    volumes:
-    - /path/to/cassandra-persistence:/bitnami
     environment:
-      - CASSANDRA_SEEDS=cassandra,cassandra2,cassandra3
       - CASSANDRA_CLUSTER_NAME=cassandra-cluster
+      - CASSANDRA_SEEDS=cassandra,cassandra2,cassandra3
       - CASSANDRA_PASSWORD=cassandra
-      # By default, Cassandra autodetects the available host memory and takes as much as it can.
-      # Therefore, memory options are mandatory if multiple Cassandras are launched in the same node.
       - MAX_HEAP_SIZE=2G
       - HEAP_NEWSIZE=200M
   api:
@@ -55,4 +35,4 @@ services:
     ports:
       - '3000:3000'
     volumes:
-      - ./cassandra/:app/src
+      - ./src/:/app/src

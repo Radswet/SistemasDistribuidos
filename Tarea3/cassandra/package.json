@@ -4,12 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node cassandra/src/index.js",
+    "dev": "nodemon cassandra/src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cassandra-driver": "^4.6.3",
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "nodemon": "^2.0.18"
   }
 }
